@@ -32,6 +32,14 @@ inputs:
   env_file:
     description: "Environment File"
     required: false
+  private_registry:
+    description: "Add --with-registry-auth flag to docker stack deploy"
+    required: false
+    default: "false"
+  args:
+    description: "Additional arguments to pass to docker stack deploy command"
+    required: false
+    default: ""
 
 runs:
   using: "docker"

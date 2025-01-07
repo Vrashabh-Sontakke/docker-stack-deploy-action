@@ -60,5 +60,21 @@ if [ -n "${INPUT_ENV_FILE}" ];then
     # export ENV_FILE="${INPUT_ENV_FILE}"
 fi
 
+deploy_cmd="docker stack deploy"
+
+# Add with-registry-auth if enabled
+if [ "${INPUT_PRIVATE_REGISTRY}" = "true" ]; then
+    deploy_cmd="${deploy_cmd} --with-registry-auth"
+fi
+
+# Add any additional arguments
+if [ -n "${INPUT_ARGS}" ]; then
+    deploy_cmd="${deploy_cmd} ${INPUT_ARGS}"
+fi
+
+# Add compose file and stack name
+deploy_cmd="${deploy_cmd} -c ${INPUT_FILE} ${INPUT_NAME}"
+
+# Execute stack deploy
 echo -e "\u001b[36mDeploying Stack: \u001b[37;1m${INPUT_NAME}"
-docker stack deploy -c "${INPUT_FILE}" "${INPUT_NAME}"
+eval "${deploy_cmd}"

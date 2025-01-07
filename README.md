@@ -30,6 +30,7 @@ For more details see [action.yaml](action.yaml) and [src/main.sh](src/main.sh).
 | file     | No       | `docker-compose.yaml` | Docker Compose file       |
 | name     | **Yes**  | -                     | Docker Stack name         |
 | env_file | No       | -                     | Docker Environment file   |
+| args     | No       | -                     | Additional Arguments      |
 
 **pass/ssh_key** - You must provide either a `pass` or `ssh_key`
 
@@ -74,6 +75,7 @@ jobs:
           pass: ${{ secrets.DOCKER_PASS }}
           file: 'docker-compose-swarm.yaml'
           name: 'stack-name'
+          args: '--with-registry-auth'
 ```
 
 Full Example
@@ -138,6 +140,7 @@ jobs:
           ssh_key: '${{ secrets.DOCKER_SSH_KEY }}'
           file: 'docker-compose-swarm.yaml'
           name: 'stack-name'
+          args: '--prune --with-registry-auth --resolve-image always'
 ```
 
 # Support
