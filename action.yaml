@@ -1,6 +1,6 @@
-name: "Docker Stack Deploy"
+name: "Docker Stack Deploy Action"
 description: "Deploy a Docker Stack"
-author: "Shane"
+author: "Vrashabh-Sontakke"
 branding:
   icon: "layers"
   color: "green"
