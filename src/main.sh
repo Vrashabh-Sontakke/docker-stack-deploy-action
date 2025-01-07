@@ -77,4 +77,5 @@ deploy_cmd="${deploy_cmd} -c ${INPUT_FILE} ${INPUT_NAME}"
 
 # Execute stack deploy
 echo -e "\u001b[36mDeploying Stack: \u001b[37;1m${INPUT_NAME}"
+echo -e "\u001b[36mDeploy Command: \u001b[37;1m${deploy_cmd}"
 eval "${deploy_cmd}"
