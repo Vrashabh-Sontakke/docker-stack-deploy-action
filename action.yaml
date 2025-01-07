@@ -1,4 +1,4 @@
-name: "Docker Stack Deploy Action"
+name: "Docker Stack Deploy Swarm Action"
 description: "Deploy a Docker Stack"
 author: "Vrashabh-Sontakke"
 branding:
